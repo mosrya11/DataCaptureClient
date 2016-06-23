@@ -334,6 +334,11 @@ namespace BayerDataClient_v4
 
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Configuration config = new Configuration("Z:\\Software Records_Current\\cd_build\\Bayer\\R And D\\Agrii_Data_Capture\\test_config_file.xml");
+        }
+
 
 
 
