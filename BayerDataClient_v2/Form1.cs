@@ -41,11 +41,15 @@ namespace BayerDataClient_v4
         EVO_DataLog VANG_B;
         EVO_DataLog PLATFORMS;
 
+        Configuration config;
+
         public Form1()
         {
             InitializeComponent();
             dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridDataError);
 
+            config = new Configuration("Z:\\Software Records_Current\\cd_build\\Bayer\\R And D\\Agrii_Data_Capture\\test_config_file.xml");
+            
             // Set the Format type and the CustomFormat string.
             //dateTimePicker1.Format = DateTimePickerFormat.Custom;
             //dateTimePicker1.CustomFormat = "MMMM dd, yyyy - dddd";
@@ -93,6 +97,10 @@ namespace BayerDataClient_v4
             this.comboBox1.DisplayMember = "Text";
             this.comboBox1.ValueMember = "Value";
 
+            foreach (EVO_DataLog t in config.Treaters)
+            { Console.WriteLine(t.sTable); }
+
+
             var items = new[] { 
             new { Text = "EVO_2_001", Value = EVO2_001 = new EVO_DataLog(sql, 4, "EVO2_001_2016", "EVO2_001_Evo_", "_Value")}, 
             new { Text = "VANG_SIDE_A", Value = VANG_A = new EVO_DataLog(sql, 3, "VANG_15_A_2016", "VANGUARD_SIDE_A_SA_", "_Value")}, 
@@ -101,7 +109,7 @@ namespace BayerDataClient_v4
 
             };
 
-            this.comboBox1.DataSource = items;
+            this.comboBox1.DataSource = config.Treaters;
 
 
         }
