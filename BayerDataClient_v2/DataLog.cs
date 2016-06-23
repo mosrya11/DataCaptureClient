@@ -76,6 +76,11 @@ namespace BayerDataClient_v4
             Suffix = sSuffix;
         }
 
+        public override string ToString() 
+        {
+            return sTable;
+        }
+
 
 
         /// <summary>
@@ -340,6 +345,8 @@ namespace BayerDataClient_v4
                 //MessageBox.Show("");
             }
         }
+
+       
 
         /// <summary>
         /// Used during testing. No longer to be used?

@@ -34,7 +34,7 @@ namespace BayerDataClient_v4
             foreach (XmlNode xn in xnList)
             {
 
-                EVO_DataLog Treater = new EVO_DataLog(connection_string, Convert.ToInt16(xn["flowmeters"].InnerText.Trim()), xn["table"].InnerText.Trim());
+                EVO_DataLog Treater = new EVO_DataLog(connection_string, Convert.ToInt16(xn["flowmeters"].InnerText.Trim()), xn["table"].InnerText.Trim(), xn["prefix"].InnerText.Trim(), xn["suffix"].InnerText.Trim());
                 Treaters.Add(Treater);
             }
 
