@@ -65,7 +65,6 @@
             this.tabExport = new BayerDataClient_v4.TablessControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.btnBrowse = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabData.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -434,22 +433,11 @@
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(139, 729);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 24);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 766);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabExport);
             this.Controls.Add(this.txtQuery);
             this.Controls.Add(this.tabData);
@@ -517,7 +505,6 @@
         private System.Windows.Forms.TextBox txtCert;
         private System.Windows.Forms.CheckBox chkCert;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
 
     }
 }

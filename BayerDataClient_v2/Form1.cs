@@ -14,33 +14,6 @@ namespace BayerDataClient_v4
     public partial class Form1 : Form
     {
 
-
-        //string sql = "server=GBAGFINM2734L\\BAYERDATACAPTURE;" +
-        //                               "Integrated Security=true;" +
-        //                               "database=BAYER_FINMERE; " +
-        //                               "connection timeout=20";
-
-        //string sql = "server=DBBrooks-PC\\DBB_SQL_SERVER;" +
-        //                               "Integrated Security=true;" +
-        //                               "database=BAYER_FINMERE; " +
-        //                               "connection timeout=20";
-
-        string sql = "server=GBAGEAST2465D-7\\BAYERDATACAPTURE;" +
-                               "Integrated Security=true;" +
-                               "database=BAYER; " +
-                               "connection timeout=20";
-
-        //string sql = "user id=Ryan;" +
-        //                               "password=sn0wboard;server=7.48.56.85\\BAYERDATACAPTURE;" +  // 
-        //                               "database=BAYER; " +
-        //                               "connection timeout=20";
-
-        EVO_DataLog EVO2_001;
-
-        EVO_DataLog VANG_A;
-        EVO_DataLog VANG_B;
-        EVO_DataLog PLATFORMS;
-
         Configuration config;
 
         public Form1()
@@ -50,14 +23,6 @@ namespace BayerDataClient_v4
 
             config = new Configuration("Z:\\Software Records_Current\\cd_build\\Bayer\\R And D\\Agrii_Data_Capture\\test_config_file.xml");
             
-            // Set the Format type and the CustomFormat string.
-            //dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            //dateTimePicker1.CustomFormat = "MMMM dd, yyyy - dddd";
-
-
-            // Set the Format type and the CustomFormat string.
-            //dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            //dateTimePicker2.CustomFormat = "MMMM dd, yyyy - dddd";
         }
 
         private void DataGridDataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -67,14 +32,6 @@ namespace BayerDataClient_v4
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            ///MessageBox.Show(EVO_12.SQLConnectionString + "   " + EVO_12.SQLStatement);
-            //dataGridView1.DataSource = null;
-            //dataGridView1.DataSource = EVO_12.AllData();
-
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {            
@@ -88,6 +45,9 @@ namespace BayerDataClient_v4
             tabExport.Height = tabData.Height - 20;
 
             dataGridView1.Height = this.Height - 250;
+            dataGridView1.Width = this.Width - 50;
+            txtQuery.Width = this.Width - 50;
+
             txtQuery.Top = dataGridView1.Top + (dataGridView1.Height + 5);
             
         }
@@ -97,28 +57,11 @@ namespace BayerDataClient_v4
             this.comboBox1.DisplayMember = "Text";
             this.comboBox1.ValueMember = "Value";
 
-            foreach (EVO_DataLog t in config.Treaters)
-            { Console.WriteLine(t.sTable); }
-
-
-            var items = new[] { 
-            new { Text = "EVO_2_001", Value = EVO2_001 = new EVO_DataLog(sql, 4, "EVO2_001_2016", "EVO2_001_Evo_", "_Value")}, 
-            new { Text = "VANG_SIDE_A", Value = VANG_A = new EVO_DataLog(sql, 3, "VANG_15_A_2016", "VANGUARD_SIDE_A_SA_", "_Value")}, 
-            new { Text = "VANG_SIDE_B", Value = VANG_B = new EVO_DataLog(sql, 3, "VANG_15_B_2016", "VANGUARD_SIDE_A_SB_", "_Value")}, 
-            //new { Text = "EVO 19", Value = EVO_19 = new EVO_DataLog(sql, 2, "EVO19", "EVO19_Evo19_", "_Value")}, 
-
-            };
-
             this.comboBox1.DataSource = config.Treaters;
 
 
         }
         
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //dataGridView1.DataSource = null;
-            //dataGridView1.DataSource = VANG_A.Summary();
-        }
 
         private string clause(int number)
         {
@@ -301,51 +244,11 @@ namespace BayerDataClient_v4
             //}
         }
 
-        //private void btnPlatformScales_Click(object sender, EventArgs e)
-        //{
-
-        //    string SQLQuery = "";
-        //    string StartDate = "";
-        //    string EndDate = "";
-
-        //    SQLQuery = "Select AGRII_LINCOLN_Platform_Scales_NetWeight1_TIMESTAMP AS DATE, " +
-        //                      "AGRII_LINCOLN_Platform_Scales_ChemName1_VALUE AS PLATFORM_1_CHEMICAL, " +
-        //                      "AGRII_LINCOLN_Platform_Scales_NetWeight1_VALUE AS PLATFORM_1_NET_WEIGHT, " +
-        //                      "AGRII_LINCOLN_Platform_Scales_ChemName2_VALUE AS PLATFORM_2_CHEMICAL, " +
-        //                      "AGRII_LINCOLN_Platform_Scales_NetWeight2_VALUE AS PLATFORM_2_NET_WEIGHT from PLATFORM_SCALES";
-            
-        //    if (chkPlatDate.Checked)
-        //    {
-        //        SQLQuery = SQLQuery + " WHERE ";
-
-        //        StartDate = datePlat1.Value.ToShortDateString() + " " + timePlat1.Value.ToShortTimeString();
-        //        EndDate = datePlat2.Value.ToShortDateString() + " " + timePlat2.Value.ToShortTimeString();
-
-        //        SQLQuery = SQLQuery + " (AGRII_LINCOLN_Platform_Scales_NetWeight1_TIMESTAMP BETWEEN '" + StartDate + "' and '" + EndDate + "')";
-
-        //    }
-
-        //    dataGridView1.DataSource = null;
-        //    dataGridView1.DataSource = (comboBox1.SelectedValue as EVO_DataLog).CustomQuery(SQLQuery);
-
-        //}
-
-        private void btnManual_Click(object sender, EventArgs e)
-        {
-            // TODO: THIS IS A COMPLETE MANUAL QUERY. MAYBE WE CAN KEEP THIS IN...
-            //dataGridView1.DataSource = null;
-            //dataGridView1.DataSource = EVO_12.CustomQuery(txtManual.Text);
-        }
-
         private void chkChem_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Configuration config = new Configuration("Z:\\Software Records_Current\\cd_build\\Bayer\\R And D\\Agrii_Data_Capture\\test_config_file.xml");
-        }
 
 
 
