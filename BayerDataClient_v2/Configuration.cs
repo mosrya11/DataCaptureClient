@@ -15,7 +15,7 @@ namespace BayerDataClient_v4
         public int ResX;
         public int ResY;
         
-        bool British;
+        public string British;
 
         public List<EVO_DataLog> Treaters = new List<EVO_DataLog>();
 
@@ -25,7 +25,10 @@ namespace BayerDataClient_v4
             XmlDocument xml = new XmlDocument();
             xml.Load(xmlString); // suppose that myXmlString contains "<Names>...</Names>"
 
+            British = xml.DocumentElement.SelectSingleNode("/config/british").InnerText.Trim();
+
             site = xml.DocumentElement.SelectSingleNode("/config/site").InnerText.Trim();
+
             connection_string = xml.DocumentElement.SelectSingleNode("/config/connection_string").InnerText.Trim();
             //connection_string.Replace(@"\", "");
 

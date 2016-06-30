@@ -137,9 +137,13 @@ namespace BayerDataClient_v4
             //string SQLQuery = "SELECT * FROM EVO_SAMPLE_DATA ";
 
             EVO_DataLog Treater = comboBox1.SelectedValue as EVO_DataLog;
+            string SQLQuery; 
 
-            //string SQLQuery = "SET LANGUAGE BRITISH; SELECT " + Treater.ColumnNames(true) + " FROM " + Treater.sTable; //comboBox1.Text; //" FROM EVO_12 ";
-            string SQLQuery = "SELECT " + Treater.ColumnNames(true) + " FROM " + Treater.sTable; //comboBox1.Text; //" FROM EVO_12 ";
+            if (config.British == "TRUE")
+                SQLQuery = "SET LANGUAGE BRITISH; SELECT " + Treater.ColumnNames(true) + " FROM " + Treater.sTable; //comboBox1.Text; //" FROM EVO_12 ";
+            else
+                SQLQuery = "SELECT " + Treater.ColumnNames(true) + " FROM " + Treater.sTable; //comboBox1.Text; //" FROM EVO_12 ";
+            
             string StartDate = "";
             string EndDate = "";
 
